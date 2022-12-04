@@ -29,10 +29,6 @@ for link in soup.find_all('a'):
     sheet.cell(row=row_count, column=1).value = link.get('href')
     row_count += 1
 
-for comment in soup.find_all(string=lambda text: isinstance(text, Comment)):
-    sheet.cell(row=row_count, column=2).value = comment.strip()
-    row_count += 1
-
 for js in soup.find_all('script'):
     sheet.cell(row=row_count, column=3).value = js.get('src')
     row_count += 1
